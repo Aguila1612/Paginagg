@@ -1,0 +1,66 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*  HEADER */
+
+body{
+    background: rgba(52, 73, 94,1.0);
+}
+
+header{
+    min-height: 12vh;
+    
+    background: #182C61;
+    /*
+    background-image: url(IMG/obs.jpg);
+    background-position: center;
+    background-size: cover;
+    */
+    padding: 0 50px;
+    color: #F8EFBA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    text-transform: uppercase;
+    color: rgba(46, 204, 113,1.0);
+    font-weight: 200;
+}
+.menu a{
+    color: #f5f6fa;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    /* transition: 0.4s; */
+}
+
+
+/* 5 Imagenes que se agrandan re piolas */
+
+.anuncios {
+    display: flex;
+    width: 900px;
+    height: 530px;
+    margin-top: 50px;
+    margin-left: 280px;
+}
+
+.anuncios img{
+    width: 0px; /* imagen chica */
+    flex-grow: 1; /* Decis a la img q PUEDE agrandarce si es POSIBLE */
+    object-fit: cover; /* Hace que ocupe el espacio disponible */
+    opacity: .8; /* Lo vuelve grisesito */
+    transition: .5s ease;  /* tiempo de transicion */
+}
+
+.anuncios img:hover {
+    cursor: crosshair; /* cambia el estilo del cursor */
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%); /* le devuelve el contraste, incluso se lo aumenta un 20% */
+}

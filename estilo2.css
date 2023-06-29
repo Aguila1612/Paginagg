@@ -1,0 +1,124 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*  HEADER */
+
+body{
+    background: rgba(52, 73, 94,1.0);
+}
+
+header{
+    min-height: 12vh;
+    background: #182C61;
+    padding: 0 50px;
+    color: #F8EFBA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    text-transform: uppercase;
+    color: rgba(46, 204, 113,1.0);
+    font-weight: 200;
+}
+.menu a{
+    color: #f5f6fa;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    /* transition: 0.4s; */
+}
+
+/* Ajuste tamaño del creeper */
+
+.creeper img{
+    width: 250px;
+    height: 444px;
+    
+}
+
+.creeper img:last-child{
+    width: 250px;
+    height: 350px;
+}
+
+.creeper:hover img:last-child {
+    transform: translate(-5%, -10%); /* Ajusta el valor de translateY para controlar la elevación del creeper */
+}
+
+/* Carta del perro */
+
+.card-container {
+    white-space: nowrap; /* Evita el salto de línea entre las cartas */
+}
+
+section{
+    display: inline-block; /* Muestra las cartas una al lado de la otra */
+    margin-top: 80px;
+    margin-left: 50px;
+    position: relative;
+    width: 250px;  /* Ancho deseado de cada carta */
+    margin-right: 10px; /* Espacio entre las cartas */
+    transition: all .3s ease;  /* Todas las transiciones tendrán un tiempo de 3s */ 
+}
+
+section :first-child{
+    box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+}
+
+section img:last-child{
+    position: absolute;
+    width: 270px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: 
+        translateY(0%)
+        translateX(-5%)
+    ;
+    transition: .3s ease;
+    opacity: 0;   /* perro invisible */
+}
+
+section:hover {  /*  Rotación de la carta  */
+    transform: 
+        perspective(250px)    
+        rotateX(10deg)
+        translateY(-5%)
+        translateZ(0)
+    ;
+}
+
+section::before {  /* Control de oscurecimiento y tiempo de transicion de la imagen */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: 
+linear-gradient(
+        to bottom, 
+        transparent 10%, 
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0) 95%
+    );
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+section:hover::before {
+    opacity: 1;
+}
+
+section:hover img:last-child {
+    opacity: 1;  /* perro visible con hover */
+    transform: translate(-5%, -20%);  /* Esto de aca no funcionaba xq, por separado, el transalte x e y se cancelaban */
+}
